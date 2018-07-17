@@ -212,3 +212,6 @@ yarn-error.log*
 build/contracts/*
 
 yarn.lock
+
+installed_contracts
+secrets.json

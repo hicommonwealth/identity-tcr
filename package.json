@@ -17,7 +17,7 @@
     "css-loader": "0.26.0",
     "detect-port": "1.0.1",
     "dotenv": "2.0.0",
-    "eslint": "3.8.1",
+    "eslint": "4.15.0",
     "eslint-config-react-app": "^0.5.0",
     "eslint-loader": "1.6.0",
     "eslint-plugin-flowtype": "2.21.0",
@@ -59,12 +59,16 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "semantic-ui-react": "^0.78.3",
-    "styled-components": "^3.2.1"
+    "styled-components": "^3.2.1",
+    "truffle-hdwallet-provider": "0.0.5"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "deploy-rinkeby": "truffle migrate --network rinkeby",
+    "deploy-ganache": "truffle migrate --network ganache",
+    "deploy-mainnet": "truffle migrate --network mainnet"
   },
   "jest": {
     "collectCoverageFrom": [
