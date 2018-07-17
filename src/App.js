@@ -9,19 +9,22 @@ import LoadingPage from './LoadingPage'
 
 
 class App extends Component {
-  state = {
-    web3: null,
-    step: 0,
-    message: null,
-    signature: null,
-    ipfs: null,
-    ipfsData: {
-      address: null,
-      hash: null,
+  constructor() {
+    super();
+    this.state = {
+      web3: null,
+      step: 0,
+      message: null,
       signature: null,
+      ipfs: null,
+      ipfsData: {
+        address: null,
+        hash: null,
+        signature: null,
+      }
+      // AccountsInstance: null,
+      // accounts: null
     }
-    // AccountsInstance: null,
-    // accounts: null
   }
 
   async componentWillMount() {
