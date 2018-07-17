@@ -67,8 +67,9 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "deploy-rinkeby": "truffle migrate --network rinkeby",
-    "deploy-ganache": "truffle migrate --network ganache",
-    "deploy-mainnet": "truffle migrate --network mainnet"
+    "deploy-dev": "truffle migrate --network development",
+    "deploy-mainnet": "truffle migrate --network mainnet",
+    "compile": "truffle compile"
   },
   "jest": {
     "collectCoverageFrom": [
