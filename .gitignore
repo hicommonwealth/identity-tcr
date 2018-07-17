@@ -29,9 +29,6 @@ bower_components
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
-
 # Dependency directories
 node_modules/
 jspm_packages/
@@ -121,9 +118,6 @@ bower_components
 # node-waf configuration
 .lock-wscript
 
-# Compiled binary addons (http://nodejs.org/api/addons.html)
-build/Release
-
 # Dependency directories
 node_modules/
 jspm_packages/
@@ -196,7 +190,6 @@ typings/
 /coverage
 
 # production
-/build
 
 # misc
 .DS_Store
@@ -208,8 +201,6 @@ typings/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-build/contracts/*
 
 yarn.lock
 
