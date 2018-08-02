@@ -74,7 +74,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.state.web3.currentProvider.publicConfigStore.on('update', callback);
+    // this.state.web3.currentProvider.publicConfigStore.on('update', callback);
   }
 
   onClick(data) {
