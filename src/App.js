@@ -33,30 +33,21 @@ class App extends Component {
       const node = await getIpfs;
       const contracts = await ethUtil.getContracts(results.web3);
 
+      // TODO: Fetch data from TCR
+
       this.setState({
         contracts: contracts,
         web3: results.web3,
         message: `sha3(Date.now()||${results.web3.eth.coinbase.slice(2)})`,
         ipfs: node,
       })
-
-      // // configure and include the smart contract
-      // const contract = require('truffle-contract')
-      // const Accounts = contract(AccountsContract)
-      
-      // Accounts.setProvider(this.state.web3.currentProvider)
-    
-      // // Get accounts.
-      // this.state.web3.eth.getAccounts(async (error, accounts) => {
-      //   const instance = await Accounts.deployed();
-      //   this.setState({ accounts: accounts, AccountsInstance: instance });
-      // })
     } catch (e) {
       console.log('Error finding web3.')
     }
   }
 
   componentDidMount() {
+    // TODO: Handle updates on network changes to reload contracts and more.
     // this.state.web3.currentProvider.publicConfigStore.on('update', callback);
   }
 
