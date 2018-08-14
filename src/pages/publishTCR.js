@@ -14,8 +14,9 @@ const PublishTwitterPage = (props) => {
           />
           <Button primary
             onClick={() => {
+              // refer: https://github.com/kangarang/tcr-ui/blob/master/docs/IPFS.md
               const { Token, Registry } = props.contracts;
-              const listingHash = props.web3.sha3(props.multihash);
+              const listingHash = props.web3.sha3(props.twitterHandle);
               const amount = props.contractParams.Parameterizer.minDeposit;
               const data = props.multihash;
 
