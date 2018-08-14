@@ -49,6 +49,18 @@ const Utility = {
       });
     });
   },
+
+  getContractParameters: async (contracts) => {
+      const propPromises = Object.keys(config.contractParameters).map(contractName => {
+        const promises = config.contractParameters[contractName].map(param => {
+          return { [param]: contracts[contractName].get(param) };
+        }).reduce((prev, curr) => (Object.assign({}, prev, curr)));
+ 
+        return { [contractName]: Promise.props(promises) };
+      }).reduce((prev, curr) => (Object.assign({}, prev, curr)));
+
+      return await Promise.props(propPromises);
+  },
 };
 
 export default Utility;

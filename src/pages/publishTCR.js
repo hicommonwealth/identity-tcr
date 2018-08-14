@@ -14,17 +14,21 @@ const PublishTwitterPage = (props) => {
           />
           <Button primary
             onClick={() => {
-              // TODO: approve the registry to transfer tokens on behalf of user
-              // TODO: once approved, apply for listing using IPFS hash
-              // FIXME: UNTESTED and NOT MERGED INTO DEMO YET
+              const { Token, Registry } = props.contracts;
               const listingHash = props.web3.sha3(props.multihash);
-              const amount = props.tcrMinAmount;
+              const amount = props.contractParams.Parameterizer.minDeposit;
               const data = props.multihash;
-              props.contracts.Regsitry.apply(listingHash, amount, data)
-              .then(result => {
-                props.onClick({
-                  action: 'TCR_APPLY',
-                  payload: result,
+
+              // approve token transfer before applying for a listing, assume min amount
+              Token.approve(Registry.address, amount, { from: props.web3.eth.coinbase })
+              .then(() => {
+                // once approved, apply for listing using IPFS hash
+                props.contracts.Registry.apply(listingHash, amount, data)
+                .then(result => {
+                  props.onClick({
+                    action: 'TCR_APPLY',
+                    payload: result,
+                  });
                 });
               });
             }}

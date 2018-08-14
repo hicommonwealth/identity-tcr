@@ -55,7 +55,6 @@ const StyledBannerSection = (props) => <BannerSection>
 
 class Landing extends Component {
   render() {
-    console.log(this.props);
     return (
       <div>
         <StyledBannerSection { ...this.props } />

@@ -15,6 +15,24 @@ const networks = {
   }
 }
 
+const contractParameters = {
+    Parameterizer: [
+        "minDeposit",
+        "pMinDeposit",
+        "applyStageLen",
+        "pApplyStageLen",
+        "commitStageLen",
+        "pCommitStageLen",
+        "revealStageLen",
+        "pRevealStageLen",
+        "dispensationPct",
+        "pDispensationPct",
+        "voteQuorum",
+        "pVoteQuorum"
+    ],
+};
+
 export default {
     networks,
+    contractParameters,
 }

@@ -32,17 +32,17 @@ class App extends Component {
       const results = await getWeb3;
       const node = await getIpfs;
       const contracts = await ethUtil.getContracts(results.web3);
-
-      // TODO: Fetch data from TCR
+      const contractParams = await ethUtil.getContractParameters(contracts);
 
       this.setState({
         contracts: contracts,
+        contractParams: contractParams,
         web3: results.web3,
         message: `sha3(Date.now()||${results.web3.eth.coinbase.slice(2)})`,
         ipfs: node,
       })
     } catch (e) {
-      console.log('Error finding web3.')
+      console.log(e);
     }
   }
 
