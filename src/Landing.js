@@ -11,6 +11,7 @@ const STEPS = [
   Pages.PublishTwitterPage,
   Pages.RetrievePage,
   Pages.VerifyPage,
+  Pages.PublishTCRPage,
 ];
 
 const ContentCard = ({ key, header, subtitle, content, disabled }) => (

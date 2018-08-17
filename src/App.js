@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import getWeb3 from './utils/getWeb3'
 import getIpfs from './utils/getIpfs'
 import ethUtil from './utils/ethUtil';
@@ -35,7 +36,8 @@ class App extends Component {
         contractParams: contractParams,
         web3: results.web3,
         ipfs: node,
-      })
+      });
+
     } catch (e) {
       console.log(e);
     }

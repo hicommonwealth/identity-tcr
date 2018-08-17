@@ -22,10 +22,10 @@ const VerifyPage = (props) => {
             <p>{props.address}</p>
           </MessageTemplate>
           <MessageTemplate header={'Message'}>
-            <textarea disabled>{props.message}</textarea>
+            <textarea disabled value={props.message} />
           </MessageTemplate>
           <MessageTemplate header={'Signature'}>
-            <textarea disabled>{props.signature}</textarea>
+            <textarea disabled value={props.signature} />
           </MessageTemplate>
           <Button primary disabled={(props.disabled[6])} onClick={props.onClick}/>
         </div>
