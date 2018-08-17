@@ -13,17 +13,12 @@ class App extends Component {
     super();
     this.state = {
       web3: null,
+      twitterHandle: '',
       step: 0,
-      message: null,
-      signature: null,
+      address: null,
+      message: '',
+      signature: '',
       ipfs: null,
-      ipfsData: {
-        address: null,
-        hash: null,
-        signature: null,
-      }
-      // AccountsInstance: null,
-      // accounts: null
     }
   }
 
@@ -35,10 +30,10 @@ class App extends Component {
       const contractParams = await ethUtil.getContractParameters(contracts);
 
       this.setState({
+        address: results.web3.eth.coinbase,
         contracts: contracts,
         contractParams: contractParams,
         web3: results.web3,
-        message: `sha3(Date.now()||${results.web3.eth.coinbase.slice(2)})`,
         ipfs: node,
       })
     } catch (e) {
@@ -56,9 +51,8 @@ class App extends Component {
       switch (data.action) {
         case 'SIGNATURE':
           this.setState({
-            signature: data.payload.signature,
-            hash: data.payload.hash,
-            timestamp: data.payload.timestamp,
+            message: data.payload.msgParams.data,
+            signature: data.payload.msgParams.sig,
           });
           break;
         case 'IPFS_PUBLISH':
@@ -70,7 +64,7 @@ class App extends Component {
           break;
         case 'IPFS_VERIFY':
           this.setState({
-            ipfsData: data.payload,
+            ...data.payload,
           });
           break;
         default:
@@ -81,12 +75,20 @@ class App extends Component {
     this.setState({ step: this.state.step + 1 });
   }
 
+  onInputChange(e) {
+    this.setState({
+      twitterHandle: e.target.value,
+    });
+  }
+
   render() {
     return (
       <Router>
         { this.state.web3 === null ? <LoadingPage /> : <div>
           <Route exact path="/" render={(props) => (
-            <Landing onClick={this.onClick.bind(this)} {...props} {...this.state} /> 
+            <Landing {...props} {...this.state}
+              onClick={this.onClick.bind(this)}
+              onInputChange={this.onInputChange.bind(this)}/> 
           )} />
           {/*<Route exact path="/student/signup" render={(props) => ( <StudentSignup {...props} {...this.state} /> )} />*/}
         </div> }

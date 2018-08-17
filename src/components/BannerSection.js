@@ -39,13 +39,8 @@ const BannerSection = styled(Section)`
     }
   }
 
-  div.data-container {
-    display: flex;
-    justify-content: space-between;
-
-    p {
-      width: 100%;
-    }
+  textarea {
+    width: 100%;
   }
 `;
 

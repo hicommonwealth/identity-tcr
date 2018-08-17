@@ -16,9 +16,8 @@ const PublishIPFSPage = (props) => {
             const obj = {
               Data: new Buffer(JSON.stringify({
                 address: props.web3.eth.coinbase,
-                hash: props.hash,
+                message: props.message,
                 signature: props.signature,
-                timestamp: props.timestamp,
               })),
               Links: [],
             };

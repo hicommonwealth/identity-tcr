@@ -1,5 +1,12 @@
 import React from 'react';
-import { Header } from 'semantic-ui-react'
+import { Button, Message } from 'semantic-ui-react'
+
+const MessageTemplate = (props) => (
+  <Message>
+    <Message.Header>{props.header}</Message.Header>
+    {props.children}
+  </Message>
+)
 
 const VerifyPage = (props) => {
   return (
@@ -8,22 +15,19 @@ const VerifyPage = (props) => {
       subtitle: 'Your Ethereum and Twitter identity link are now published on IPFS.',
       content: (
         <div>
-          <div className={'data-container'}>
-            <Header as='h3'>Multihash:</Header>
-            <p>&nbsp;{props.multihash}</p>
-          </div>
-          <div className={'data-container'}>
-            <Header as='h3'>Address:</Header>
-            <p>&nbsp;{props.ipfsData.address}</p>
-          </div>
-          <div className={'data-container'}>
-            <Header as='h3'>Hash:</Header>
-            <p>&nbsp;{props.ipfsData.hash}</p>
-          </div>
-          <div className={'data-container'}>
-            <Header as='h3'>Signature:</Header>
-            <p>&nbsp;{props.ipfsData.signature}</p>
-          </div>
+          <MessageTemplate header={'Multihash'}>
+            <p>{props.multihash}</p>
+          </MessageTemplate>
+          <MessageTemplate header={'Address'}>
+            <p>{props.address}</p>
+          </MessageTemplate>
+          <MessageTemplate header={'Message'}>
+            <textarea disabled>{props.message}</textarea>
+          </MessageTemplate>
+          <MessageTemplate header={'Signature'}>
+            <textarea disabled>{props.signature}</textarea>
+          </MessageTemplate>
+          <Button primary disabled={(props.disabled[6])} onClick={props.onClick}/>
         </div>
       ),
     }

@@ -52,6 +52,8 @@
   },
   "dependencies": {
     "dotenv": "^2.0.0",
+    "eth-sig-util": "^2.0.2",
+    "ethereumjs-util": "^5.2.0",
     "ipfs": "^0.30.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
